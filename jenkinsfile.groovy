@@ -16,24 +16,14 @@ stage( "build" ){
 sh 'tar -cvf nodeapp.tar package.json server.js'
 	}
 }
- stage( "initializing terraform"){
+stage( "aprroval"){
+	steps{
+	 timeout(time: 15, unit: "MINUTES") {    input message: 'Do you want to approve the deploy in production?', ok: 'Yes'}
+	}
+}
+stage( "deploy"){
 	 steps{
-  sh 'terraform init'
-	 }
- }
- stage( "validating the configuration files"){
-	 steps{
-  sh 'terraform validate'
-	 }
- }
- stage( "terraform planning"){
-	 steps{
-  sh 'terraform plan'
-	 }
- }
- stage( "terraform apply"){
-	 steps{
-  sh 'terraform apply --auto-approve'
+  sh 'npm start'
 	 }
  }
 
