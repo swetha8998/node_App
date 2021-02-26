@@ -23,7 +23,7 @@ stage( "aprroval"){
 }
 stage( "deploy"){
 	 steps{
-  sh 'npm start'
+  sh 'timeout 120s npm start'
 	 }
  }
 
