@@ -36,9 +36,9 @@ sh 'tar -cvf nodeapp.tar package.json server.js'
   sh 'terraform apply --auto-approve'
 	 }
  }
-stage ( "approve"){
+stage ( "connecting to ec2 instance"){
 	steps{
-sh 'echo "in approval stage" '
+       ssh -i /home/swetha/terraform_pratice/mykey ubuntu@ec2-54-174-18-219.compute-1.amazonaws.com
 	}
 
 }
