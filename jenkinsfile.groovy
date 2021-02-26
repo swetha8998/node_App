@@ -1,4 +1,8 @@
 node{
+ environment{
+	    AWS_ACCESS_KEY_ID     = credentials('access_k')
+        AWS_SECRET_ACCESS_KEY = credentials('secret_k')
+	 }
 stage( "git checkout"){
 git branch: 'master', url: 'https://github.com/swetha8998/node_App.git'
 }
@@ -16,7 +20,7 @@ sh 'tar -cvf nodeapp.tar package.json server.js'
   sh 'terraform plan')
  }
  stage( "terraform apply"){
-  sh 'terraform apply'
+  sh 'terraform apply --auto-approve'
  }
 stage ( "approve"){
 sh 'echo "in approval stage" '
