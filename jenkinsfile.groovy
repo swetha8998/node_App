@@ -17,7 +17,7 @@ sh 'tar -cvf nodeapp.tar package.json server.js'
   sh 'terraform validate'
  }
  stage( "terraform planning"){
-  sh 'terraform plan')
+  sh 'terraform plan'
  }
  stage( "terraform apply"){
   sh 'terraform apply --auto-approve'
