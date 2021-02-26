@@ -12,7 +12,7 @@ git branch: 'master', url: 'https://github.com/swetha8998/node_App.git'
 }
 	stage( "destroying the terraform"){
 	steps{
-     sh 'terraform destroy'
+     sh 'terraform destroy --auto-approve'
 	}
 }	
 stage( "build" ){
