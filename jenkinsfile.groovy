@@ -38,7 +38,7 @@ sh 'tar -cvf nodeapp.tar package.json server.js'
  }
 stage ( "connecting to ec2 instance"){
 	steps{
-       ssh -i /home/swetha/terraform_pratice/mykey ubuntu@ec2-54-174-18-219.compute-1.amazonaws.com
+       ssh -i /home/swetha/terraform_pratice/mykey ubuntu@output.public_dns
 	}
 
 }
