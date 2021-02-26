@@ -36,17 +36,6 @@ sh 'tar -cvf nodeapp.tar package.json server.js'
   sh 'terraform apply --auto-approve'
 	 }
  }
-stage ( "connecting to ec2 instance"){
-	steps{
-       sh 'ssh -i mykey ubuntu@output.public_dns'
-	}
 
-}
-stage ( " deploy "){
-	steps{
-sh 'echo "in deployement stage"'
-	}
-
-}
 	}
 }
