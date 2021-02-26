@@ -1,6 +1,6 @@
 node{
  environment{
-	    AWS_ACCESS_KEY_ID     = credentials('access_k')
+	    AWS_ACCESS_KEY_ID = credentials('access_k')
         AWS_SECRET_ACCESS_KEY = credentials('secret_k')
 	 }
 stage( "git checkout"){
