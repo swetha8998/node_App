@@ -10,6 +10,11 @@ stage( "git checkout"){
 git branch: 'master', url: 'https://github.com/swetha8998/node_App.git'
 	}
 }
+	stage( "destroying the terraform"){
+	steps{
+     sh 'terraform destroy'
+	}
+}	
 stage( "build" ){
 	steps{
  sh 'echo "compressing the files present " '
