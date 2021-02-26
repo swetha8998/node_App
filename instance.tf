@@ -6,6 +6,14 @@ resource "aws_instance" "example"{
 ami = "ami-07f5c641c23596eb9"
 instance_type ="t2.micro"
 key_name = "${aws_key_pair.mykey.key_name}"
+  connection{
+     host        = coalesce(self.public_ip, self.private_ip)
+    type        = "ssh"
+user = "${var.INSTANCE_USERNAME}"
+private_key =file(var.PATH_TO_PRIVATE_KEY)
+   
+
+}
   
  provisioner "file" {
     source      = "script.sh"
@@ -29,8 +37,5 @@ key_name = "${aws_key_pair.mykey.key_name}"
     ]
   }
   
-connection{
-user = "${var.INSTANCE_USERNAME}"
-private_key =file(var.PATH_TO_PRIVATE_KEY)
-}
+
 }
