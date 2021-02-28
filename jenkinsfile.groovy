@@ -27,6 +27,11 @@ stage( "deploy"){
 
 	 }
  }
+		stage( "post deployement"){
+			steps{
+				sh 'curl 192.168.56.23:8070'
+			}
+		}
 
 	}
 }
