@@ -23,8 +23,8 @@ stage( "aprroval"){
 }
 stage( "deploy"){
 	 steps{
-  sh 'timeout 120s npm start'
-  sh 'npm.exit()'
+  sh 'pm2 start server.js'
+
 	 }
  }
 
